@@ -365,12 +365,12 @@ const file_account_proto_rawDesc = "" +
 	"\x04skip\x18\x01 \x01(\x04R\x04skip\x12\x12\n" +
 	"\x04take\x18\x02 \x01(\x04R\x04take\">\n" +
 	"\x13GetAccountsResponse\x12'\n" +
-	"\baccounts\x18\x01 \x03(\v2\v.pb.AccountR\baccounts2\xd2\x01\n" +
+	"\baccounts\x18\x01 \x03(\v2\v.pb.AccountR\baccounts2\xd3\x01\n" +
 	"\x0eAccountService\x12@\n" +
 	"\vPostAccount\x12\x16.pb.PostAccountRequest\x1a\x17.pb.PostAccountResponse\"\x00\x12=\n" +
 	"\n" +
-	"GetAccount\x12\x15.pb.GetAccountRequest\x1a\x16.pb.GetAccountResponse\"\x00\x12?\n" +
-	"\vGetAccounts\x12\x16.pb.GetAccountsRequest\x1a\x16.pb.GetAccountResponse\"\x00B4Z2github.com/sriraksharao/go-microservice/account/pbb\x06proto3"
+	"GetAccount\x12\x15.pb.GetAccountRequest\x1a\x16.pb.GetAccountResponse\"\x00\x12@\n" +
+	"\vGetAccounts\x12\x16.pb.GetAccountsRequest\x1a\x17.pb.GetAccountsResponse\"\x00B4Z2github.com/sriraksharao/go-microservice/account/pbb\x06proto3"
 
 var (
 	file_account_proto_rawDescOnce sync.Once
@@ -403,7 +403,7 @@ var file_account_proto_depIdxs = []int32{
 	5, // 5: pb.AccountService.GetAccounts:input_type -> pb.GetAccountsRequest
 	2, // 6: pb.AccountService.PostAccount:output_type -> pb.PostAccountResponse
 	4, // 7: pb.AccountService.GetAccount:output_type -> pb.GetAccountResponse
-	4, // 8: pb.AccountService.GetAccounts:output_type -> pb.GetAccountResponse
+	6, // 8: pb.AccountService.GetAccounts:output_type -> pb.GetAccountsResponse
 	6, // [6:9] is the sub-list for method output_type
 	3, // [3:6] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name

@@ -34,6 +34,6 @@ service AccountService{
     }
     rpc GetAccount(GetAccountRequest) returns (GetAccountResponse){
     }
-    rpc GetAccounts(GetAccountsRequest) returns (GetAccountResponse){
+    rpc GetAccounts(GetAccountsRequest) returns (GetAccountsResponse){
     }
 }
