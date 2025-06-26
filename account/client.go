@@ -3,13 +3,13 @@ package account
 import (
 	"context"
 
-	"github.com/sriraksharao/go-microservice/account/pb/github.com/sriraksharao/go-microservice/account/pb"
+	__ "github.com/sriraksharao/go-microservice/account/pb"
 	"google.golang.org/grpc"
 )
 
 type Client struct {
 	conn    *grpc.ClientConn
-	service pb.AccountServiceClient
+	service __.AccountServiceClient
 }
 
 func NewClient(url string) (*Client, error) {

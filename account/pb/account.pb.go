@@ -4,7 +4,7 @@
 // 	protoc        v3.20.3
 // source: account.proto
 
-package pb
+package __
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -370,7 +370,7 @@ const file_account_proto_rawDesc = "" +
 	"\vPostAccount\x12\x16.pb.PostAccountRequest\x1a\x17.pb.PostAccountResponse\"\x00\x12=\n" +
 	"\n" +
 	"GetAccount\x12\x15.pb.GetAccountRequest\x1a\x16.pb.GetAccountResponse\"\x00\x12@\n" +
-	"\vGetAccounts\x12\x16.pb.GetAccountsRequest\x1a\x17.pb.GetAccountsResponse\"\x00B4Z2github.com/sriraksharao/go-microservice/account/pbb\x06proto3"
+	"\vGetAccounts\x12\x16.pb.GetAccountsRequest\x1a\x17.pb.GetAccountsResponse\"\x00B\x04Z\x02./b\x06proto3"
 
 var (
 	file_account_proto_rawDescOnce sync.Once

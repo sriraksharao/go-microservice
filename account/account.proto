@@ -1,6 +1,6 @@
 syntax = "proto3";
 package pb;
-option go_package = "github.com/sriraksharao/go-microservice/account/pb";
+option go_package = "./";
 message Account{
     string id = 1;
     string name = 2;
