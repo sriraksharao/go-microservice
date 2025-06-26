@@ -1,0 +1,6 @@
+flow is 
+mutation/query ---> client ---> server ---> service ---> repository ---> database
+
+we use elastic search db in catalogb unlike postgres in account. hence no db.dockerfile in catalog
+
+Start coding from repo and go upwards 
