@@ -25,7 +25,7 @@ func main() {
 	retry.ForeverSleep(2*time.Second, func(_ int) (err error) {
 		r, err = order.NewPostgresRepository(cfg.DatabaseURL)
 		if err != nil {
-			log.Println(err)
+			log.Println("error is ", err)
 		}
 		return
 	})

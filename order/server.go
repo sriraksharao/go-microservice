@@ -16,7 +16,7 @@ import (
 )
 
 type grpcServer struct {
-	// pb.UnimplementedorderServiceServer,
+	pb.UnimplementedOrderServiceServer
 	Service       Service
 	accountClient *account.Client
 	catalogClient *catalog.Client
@@ -39,7 +39,10 @@ func ListenGRPC(s Service, accountURL, catalogURL string, port int) error {
 		return err
 	}
 	serv := grpc.NewServer()
-	pb.RegisterOrderServiceServer(serv, &grpcServer{s, accountClient, catalogClient})
+	pb.RegisterOrderServiceServer(serv, &grpcServer{UnimplementedOrderServiceServer: pb.UnimplementedOrderServiceServer{},
+		Service:       s,
+		accountClient: accountClient,
+		catalogClient: catalogClient})
 	reflection.Register(serv)
 	return serv.Serve(lis)
 
