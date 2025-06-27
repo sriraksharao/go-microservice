@@ -98,9 +98,9 @@ func (x *Order) GetProducts() []*Order_OrderProduct {
 }
 
 type PostOrderRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ProductId     string                 `protobuf:"bytes,2,opt,name=productId,proto3" json:"productId,omitempty"`
-	Quantity      uint32                 `protobuf:"varint,3,opt,name=quantity,proto3" json:"quantity,omitempty"`
+	state         protoimpl.MessageState           `protogen:"open.v1"`
+	AccountId     string                           `protobuf:"bytes,2,opt,name=accountId,proto3" json:"accountId,omitempty"`
+	Products      []*PostOrderRequest_OrderProduct `protobuf:"bytes,4,rep,name=products,proto3" json:"products,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -135,18 +135,18 @@ func (*PostOrderRequest) Descriptor() ([]byte, []int) {
 	return file_order_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *PostOrderRequest) GetProductId() string {
+func (x *PostOrderRequest) GetAccountId() string {
 	if x != nil {
-		return x.ProductId
+		return x.AccountId
 	}
 	return ""
 }
 
-func (x *PostOrderRequest) GetQuantity() uint32 {
+func (x *PostOrderRequest) GetProducts() []*PostOrderRequest_OrderProduct {
 	if x != nil {
-		return x.Quantity
+		return x.Products
 	}
-	return 0
+	return nil
 }
 
 type PostOrderResponse struct {
@@ -446,9 +446,9 @@ func (x *Order_OrderProduct) GetQuantity() uint32 {
 }
 
 type PostOrderRequest_OrderProduct struct {
-	state         protoimpl.MessageState           `protogen:"open.v1"`
-	AccountId     string                           `protobuf:"bytes,2,opt,name=accountId,proto3" json:"accountId,omitempty"`
-	Products      []*PostOrderRequest_OrderProduct `protobuf:"bytes,3,rep,name=products,proto3" json:"products,omitempty"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ProductId     string                 `protobuf:"bytes,2,opt,name=productId,proto3" json:"productId,omitempty"`
+	Quantity      uint32                 `protobuf:"varint,3,opt,name=quantity,proto3" json:"quantity,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -483,18 +483,18 @@ func (*PostOrderRequest_OrderProduct) Descriptor() ([]byte, []int) {
 	return file_order_proto_rawDescGZIP(), []int{1, 0}
 }
 
-func (x *PostOrderRequest_OrderProduct) GetAccountId() string {
+func (x *PostOrderRequest_OrderProduct) GetProductId() string {
 	if x != nil {
-		return x.AccountId
+		return x.ProductId
 	}
 	return ""
 }
 
-func (x *PostOrderRequest_OrderProduct) GetProducts() []*PostOrderRequest_OrderProduct {
+func (x *PostOrderRequest_OrderProduct) GetQuantity() uint32 {
 	if x != nil {
-		return x.Products
+		return x.Quantity
 	}
-	return nil
+	return 0
 }
 
 var File_order_proto protoreflect.FileDescriptor
@@ -517,11 +517,11 @@ const file_order_proto_rawDesc = "" +
 	"\x05price\x18\x04 \x01(\x01R\x05price\x12\x1a\n" +
 	"\bquantity\x18\x05 \x01(\rR\bquantity\"\xb9\x01\n" +
 	"\x10PostOrderRequest\x12\x1c\n" +
-	"\tproductId\x18\x02 \x01(\tR\tproductId\x12\x1a\n" +
-	"\bquantity\x18\x03 \x01(\rR\bquantity\x1ak\n" +
-	"\fOrderProduct\x12\x1c\n" +
 	"\taccountId\x18\x02 \x01(\tR\taccountId\x12=\n" +
-	"\bproducts\x18\x03 \x03(\v2!.pb.PostOrderRequest.OrderProductR\bproducts\"4\n" +
+	"\bproducts\x18\x04 \x03(\v2!.pb.PostOrderRequest.OrderProductR\bproducts\x1aH\n" +
+	"\fOrderProduct\x12\x1c\n" +
+	"\tproductId\x18\x02 \x01(\tR\tproductId\x12\x1a\n" +
+	"\bquantity\x18\x03 \x01(\rR\bquantity\"4\n" +
 	"\x11PostOrderResponse\x12\x1f\n" +
 	"\x05order\x18\x01 \x01(\v2\t.pb.OrderR\x05order\"!\n" +
 	"\x0fGetOrderRequest\x12\x0e\n" +
@@ -562,10 +562,10 @@ var file_order_proto_goTypes = []any{
 }
 var file_order_proto_depIdxs = []int32{
 	7, // 0: pb.Order.products:type_name -> pb.Order.OrderProduct
-	0, // 1: pb.PostOrderResponse.order:type_name -> pb.Order
-	0, // 2: pb.GetOrderResponse.order:type_name -> pb.Order
-	0, // 3: pb.GetOrdersForAccountResponse.orders:type_name -> pb.Order
-	8, // 4: pb.PostOrderRequest.OrderProduct.products:type_name -> pb.PostOrderRequest.OrderProduct
+	8, // 1: pb.PostOrderRequest.products:type_name -> pb.PostOrderRequest.OrderProduct
+	0, // 2: pb.PostOrderResponse.order:type_name -> pb.Order
+	0, // 3: pb.GetOrderResponse.order:type_name -> pb.Order
+	0, // 4: pb.GetOrdersForAccountResponse.orders:type_name -> pb.Order
 	1, // 5: pb.OrderService.PostOrder:input_type -> pb.PostOrderRequest
 	5, // 6: pb.OrderService.GetOrdersForAccount:input_type -> pb.GetOrdersForAccountRequest
 	2, // 7: pb.OrderService.PostOrder:output_type -> pb.PostOrderResponse

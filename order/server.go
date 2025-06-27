@@ -51,7 +51,7 @@ func (s *grpcServer) PostOrder(ctx context.Context, r *pb.PostOrderRequest) (*pb
 		return nil, errors.New("account not found")
 	}
 	productIDs := []string{}
-	orderedProducts, err := s.catalog.Client.GetProducts(ctx, 0, 0, productIDs, "")
+	orderedProducts, err := s.catalogClient.GetProducts(ctx, 0, 0, productIDs, "")
 	if err != nil {
 		return nil, errors.New("products not found")
 
@@ -61,9 +61,9 @@ func (s *grpcServer) PostOrder(ctx context.Context, r *pb.PostOrderRequest) (*pb
 		product := OrderedProduct{
 			ID:          p.ID,
 			Quantity:    0,
-			Price:       p.price,
-			Name:        p.name,
-			Description: p.description,
+			Price:       p.Price,
+			Name:        p.Name,
+			Description: p.Description,
 		}
 		for _, rp := range r.Products {
 			if rp.ProductId == p.ID {
@@ -76,14 +76,14 @@ func (s *grpcServer) PostOrder(ctx context.Context, r *pb.PostOrderRequest) (*pb
 		}
 
 	}
-	order, err := s.service.PostOrder(ctx, r.AccountId, products)
+	order, err := s.Service.PostOrder(ctx, r.AccountId, products)
 	if err != nil {
 		log.Println("error posting order")
 		return nil, errors.New("could not post order")
 	}
 	orderProto := &pb.Order{
 		Id:         order.ID,
-		AccountId:  order.AccountId,
+		AccountId:  order.AccountID,
 		TotalPrice: order.TotalPrice,
 		Products:   []*pb.Order_OrderProduct{},
 	}

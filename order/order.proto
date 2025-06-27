@@ -18,13 +18,14 @@ message Order{
     repeated OrderProduct products = 5;
 }
 
-message PostOrderRequest{
-    message OrderProduct{
-        string accountId = 2;
-        repeated OrderProduct products = 3;
+message PostOrderRequest {
+    message OrderProduct {
+        string productId = 2;
+        uint32 quantity = 3;
     }
-    string productId = 2;
-    uint32 quantity = 3;
+
+    string accountId = 2;
+    repeated OrderProduct products = 4;
 }
 
 message PostOrderResponse{
