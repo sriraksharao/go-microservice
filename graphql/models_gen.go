@@ -6,9 +6,6 @@ type AccountInput struct {
 	Name string `json:"name"`
 }
 
-type Mutation struct {
-}
-
 type Order struct {
 	ID         string            `json:"id"`
 	CreatedAt  string            `json:"createdAt"`
@@ -35,8 +32,8 @@ type OrderedProduct struct {
 }
 
 type PaginationInput struct {
-	Skip *int `json:"skip,omitempty"`
-	Take *int `json:"take,omitempty"`
+	Skip *int `json:"skip"`
+	Take *int `json:"take"`
 }
 
 type Product struct {
@@ -50,7 +47,4 @@ type ProductInput struct {
 	Name        string  `json:"name"`
 	Description string  `json:"description"`
 	Price       float64 `json:"price"`
-}
-
-type Query struct {
 }
