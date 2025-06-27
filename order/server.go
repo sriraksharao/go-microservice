@@ -74,6 +74,7 @@ func (s *grpcServer) PostOrder(ctx context.Context, r *pb.PostOrderRequest) (*pb
 		if product.Quantity != 0 {
 			products = append(products, product)
 		}
+
 	}
 	order, err := s.service.PostOrder(ctx, r.AccountId, products)
 	if err != nil {
